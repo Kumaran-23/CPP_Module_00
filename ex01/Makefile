@@ -2,8 +2,8 @@ NAME = phonebook
 SRC = Contact.cpp PhoneBook.cpp main.cpp
 HEADER = Contact.hpp PhoneBook.hpp
 OBJ = $(SRC:.cpp=.o)
-CC = c++
-FLAGS = -Wall -Werror -Wextra -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 GREEN		=	\033[1;92m
 YELLOW		=	\033[1;93m
@@ -17,11 +17,11 @@ start:
 all: $(NAME)
 
 $(NAME): $(HEADER) $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)ex01 Done!$(WHITE)"
 
 %.o : %.c $(HEADER)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)
